@@ -1,0 +1,26 @@
+{
+  "name": "ultrathink-studio",
+  "version": "0.1.0",
+  "description": "UltraThink — local-first agentic dev environment. 232+ skills, 4-wing memory + Tekiō adaptive learning, bipartite design-doc gate. Bundled as Claude Code skills + a Tauri desktop app (UltraThink Studio).",
+  "author": {
+    "name": "InuVerse",
+    "url": "https://github.com/InuVerse"
+  },
+  "license": "MIT",
+  "homepage": "https://ultrathink.studio",
+  "repository": "https://github.com/InuVerse/ultrathink",
+  "keywords": [
+    "agent",
+    "skills",
+    "memory",
+    "knowledge-graph",
+    "code-intelligence",
+    "design-doc",
+    "tekio",
+    "bipartite",
+    "claude-code",
+    "studio",
+    "desktop",
+    "tauri"
+  ]
+}

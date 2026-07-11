@@ -1,0 +1,19 @@
+import { s as a, c as s, a as e, C as t } from "./chunk-4TB4RGXK-BCVpbszo.js";
+import { _ as i } from "./mermaid.core-CRFIEA0t.js";
+import "./chunk-FMBD7UC4-BPnfhuG8.js";
+import "./chunk-YZCP3GAM-pFELHSZb.js";
+import "./chunk-55IACEB6-Dm45DHEH.js";
+import "./chunk-EDXVE4YY-CM7vDp5c.js";
+import "./index-hX5IdXBW.js";
+var n = {
+  parser: e,
+  get db() {
+    return new t();
+  },
+  renderer: s,
+  styles: a,
+  init: i((r) => {
+    (r.class || (r.class = {}), (r.class.arrowMarkerAbsolute = r.arrowMarkerAbsolute));
+  }, "init"),
+};
+export { n as diagram };

@@ -1,0 +1,29 @@
+{
+  "name": "@inuverse/ut-cli",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "ut — UltraThink terminal CLI for the bipartite team (agents, issues, design-docs, memory).",
+  "bin": {
+    "ut": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "dev": "tsc -b --watch",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@inuverse/studio-engine": "workspace:*",
+    "@neondatabase/serverless": "^0.10.4",
+    "chalk": "^5.3.0",
+    "cli-table3": "^0.6.5",
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.7",
+    "ora": "^8.1.1",
+    "undici": "^7.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.3"
+  }
+}

@@ -1,0 +1,34 @@
+import { _ as a, l as s, L as n, e as i } from "./mermaid.core-gIfAqAR1.js";
+import { p } from "./wardley-RL74JXVD-CgXFGsfV.js";
+import "./index-DsVzfBkh.js";
+import "./min-wbx4F2Qf.js";
+import "./_baseUniq-BM2H-MCK.js";
+var g = {
+    parse: a(async (r) => {
+      const e = await p("info", r);
+      s.debug(e);
+    }, "parse"),
+  },
+  v = { version: "11.14.0" },
+  d = a(() => v.version, "getVersion"),
+  m = { getVersion: d },
+  c = a((r, e, o) => {
+    s.debug(
+      `rendering info diagram
+` + r
+    );
+    const t = n(e);
+    (i(t, 100, 400, !0),
+      t
+        .append("g")
+        .append("text")
+        .attr("x", 100)
+        .attr("y", 40)
+        .attr("class", "version")
+        .attr("font-size", 32)
+        .style("text-anchor", "middle")
+        .text(`v${o}`));
+  }, "draw"),
+  l = { draw: c },
+  y = { parser: g, db: m, renderer: l };
+export { y as diagram };

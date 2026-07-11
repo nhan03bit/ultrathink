@@ -1,0 +1,62 @@
+{
+  "mcpServers": {
+    "vfs": {
+      "command": "vfs",
+      "args": [
+        "mcp"
+      ]
+    },
+    "agora": {
+      "command": "node",
+      "args": [
+        "mcp/agora/dist/index.js"
+      ]
+    },
+    "code-intel": {
+      "command": "node",
+      "args": [
+        "packages/code-intel/dist/index.js"
+      ]
+    },
+    "memory": {
+      "command": "npx",
+      "args": [
+        "tsx",
+        "mcp/memory/src/index.ts"
+      ]
+    },
+    "stitch": {
+      "url": "https://stitch.googleapis.com/mcp",
+      "headers": {
+        "X-Goog-Api-Key": "${STITCH_API_KEY}"
+      },
+      "type": "http"
+    },
+    "design-doc": {
+      "type": "stdio",
+      "command": "mcp/design-doc/launch.sh"
+    },
+    "scrapling": {
+      "type": "stdio",
+      "command": "scrapling",
+      "args": ["mcp"]
+    },
+    "task-inugami": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "tsx",
+        "mcp/task-inugami/src/index.ts"
+      ],
+      "env": {
+        "TASK_API_URL": "https://task.inugami.dev",
+        "TASK_API_TOKEN": "${TASK_API_TOKEN}"
+      }
+    },
+    "promptfoo": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["promptfoo", "mcp", "--transport", "stdio"]
+    }
+  }
+}

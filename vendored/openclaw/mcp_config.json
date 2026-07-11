@@ -1,0 +1,34 @@
+{
+  "$schema": "https://docs.openclaw.ai/schemas/mcp-config.json",
+  "_comment": "Add these servers to your ~/.openclaw/openclaw.json under mcpServers",
+  "mcpServers": {
+    "ultrathink-memory": {
+      "command": "npx",
+      "args": ["tsx", "${ULTRATHINK_ROOT}/memory/scripts/memory-runner.ts", "mcp-serve"],
+      "env": {
+        "DATABASE_URL": "${DATABASE_URL}",
+        "ULTRATHINK_ROOT": "${ULTRATHINK_ROOT}"
+      },
+      "tools": [
+        "memory-search",
+        "memory-save",
+        "memory-recall"
+      ]
+    },
+    "ultrathink-code-intel": {
+      "command": "node",
+      "args": ["${ULTRATHINK_ROOT}/code-intel/dist/mcp-server.js"],
+      "env": {
+        "DATABASE_URL": "${DATABASE_URL}",
+        "ULTRATHINK_ROOT": "${ULTRATHINK_ROOT}"
+      },
+      "tools": [
+        "code-symbols",
+        "code-deps",
+        "code-dependents",
+        "code-impact",
+        "code-modules"
+      ]
+    }
+  }
+}

@@ -1,0 +1,44 @@
+# UltraThink — Codex CLI Configuration (Secret-safe shared template)
+# Format reference: https://github.com/openai/codex/blob/main/docs/config.md
+# Keep committed config portable: no API keys, tokens, or user-specific absolute paths.
+# Put local machine overrides in your untracked ~/.codex/config.toml.
+
+model = "gpt-5.5"
+approval_policy = "on-request"
+model_reasoning_effort = "xhigh"
+
+# ─── Features ────────────────────────────────────────────────────────────────
+
+[features]
+hooks = true
+
+# ─── MCP Servers ─────────────────────────────────────────────────────────────
+# Codex TOML requires `command` as a string and `args` as a separate array.
+
+[mcp_servers.vfs]
+command = "vfs"
+args = ["mcp"]
+startup_timeout_sec = 15
+
+[mcp_servers.vfs.tools.extract]
+approval_mode = "approve"
+
+[mcp_servers.vfs.tools.search]
+approval_mode = "approve"
+
+[mcp_servers.code-intel]
+command = "node"
+args = ["packages/code-intel/dist/index.js"]
+startup_timeout_sec = 15
+
+[mcp_servers.agora]
+command = "node"
+args = ["mcp/agora/dist/index.js"]
+startup_timeout_sec = 15
+
+# ─── Optional HTTP MCP Servers ────────────────────────────────────────────────
+# Configure authenticated remote MCP servers in a local, untracked override.
+# Do not commit API keys in this shared config.
+# Example local-only project trust entry:
+# [projects."/absolute/path/to/your/project"]
+# trust_level = "trusted"

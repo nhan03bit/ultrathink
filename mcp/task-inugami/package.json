@@ -1,0 +1,18 @@
+{
+  "name": "@ultrathink/mcp-task-inugami",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "MCP server for task.inugami.dev — create and manage tasks, teams, and members",
+  "scripts": {
+    "start": "bun --env-file=.env src/index.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.3"
+  }
+}

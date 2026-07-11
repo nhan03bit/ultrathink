@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "inuverse-ultrathink",
+  "owner": {
+    "name": "InuVerse"
+  },
+  "metadata": {
+    "description": "UltraThink: agentic dev environment + 232-skill mesh + persistent memory."
+  },
+  "plugins": [
+    {
+      "name": "ultrathink-studio",
+      "source": "./",
+      "description": "UltraThink — local-first agentic dev environment. Skills, memory, knowledge graph, Tauri desktop app."
+    }
+  ]
+}

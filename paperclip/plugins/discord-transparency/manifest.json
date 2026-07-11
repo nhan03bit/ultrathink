@@ -1,0 +1,45 @@
+{
+  "id": "discord-transparency",
+  "name": "Discord Transparency Feed",
+  "version": "0.1.0",
+  "description": "Stream Paperclip events (issues, agents, runs, costs, approvals) to Discord channel webhooks.",
+  "entrypoints": {
+    "worker": "dist/index.js"
+  },
+  "capabilities": [
+    "events.subscribe",
+    "http.outbound",
+    "secrets.read-ref",
+    "plugin.state.read",
+    "plugin.state.write"
+  ],
+  "config": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "webhooks": {
+          "type": "object",
+          "description": "Per-channel Discord webhook URLs. Leave blank to log payloads instead of posting.",
+          "properties": {
+            "feed":       { "type": "string", "format": "uri" },
+            "agents":     { "type": "string", "format": "uri" },
+            "humans":     { "type": "string", "format": "uri" },
+            "humanAgent": { "type": "string", "format": "uri" },
+            "alerts":     { "type": "string", "format": "uri" },
+            "designDocs": { "type": "string", "format": "uri" }
+          }
+        },
+        "minRunCostUsd": {
+          "type": "number",
+          "description": "Suppress agent.run.finished embeds below this dollar cost.",
+          "default": 0.5
+        },
+        "directorMention": {
+          "type": "string",
+          "description": "Discord user/role ID to mention on alerts (e.g. '123456' or '&987654' for role).",
+          "default": ""
+        }
+      }
+    }
+  }
+}

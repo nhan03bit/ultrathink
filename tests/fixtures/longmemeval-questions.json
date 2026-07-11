@@ -1,0 +1,550 @@
+{
+  "seeds": [
+    {
+      "id": "seed-001",
+      "content": "Prefers Tailwind CSS over styled-components for all frontend styling",
+      "category": "preference",
+      "importance": 8,
+      "confidence": 0.9,
+      "wing": "user",
+      "hall": "preferences",
+      "layer": 0,
+      "tags": ["tailwind", "css"]
+    },
+    {
+      "id": "seed-002",
+      "content": "Uses PostgreSQL with Neon serverless driver for all database work",
+      "category": "tool-preference",
+      "importance": 8,
+      "confidence": 0.95,
+      "wing": "user",
+      "hall": "preferences",
+      "layer": 0,
+      "tags": ["postgres", "neon"]
+    },
+    {
+      "id": "seed-003",
+      "content": "Decided to use Drizzle ORM instead of Prisma because of better edge runtime support and type inference",
+      "category": "decision",
+      "importance": 9,
+      "confidence": 0.9,
+      "wing": "knowledge",
+      "hall": "decisions",
+      "layer": 1,
+      "tags": ["drizzle", "orm", "architecture"]
+    },
+    {
+      "id": "seed-004",
+      "content": "API routes must validate input with Zod schemas at the boundary — never trust client data",
+      "category": "pattern",
+      "importance": 9,
+      "confidence": 1.0,
+      "wing": "knowledge",
+      "hall": "patterns",
+      "layer": 1,
+      "tags": ["zod", "validation", "api"]
+    },
+    {
+      "id": "seed-005",
+      "content": "The auth system uses JWT with httpOnly cookies, refresh tokens stored in Redis with 7-day TTL",
+      "category": "architecture",
+      "importance": 9,
+      "confidence": 0.95,
+      "wing": "knowledge",
+      "hall": "decisions",
+      "layer": 1,
+      "tags": ["auth", "jwt", "redis"]
+    },
+    {
+      "id": "seed-006",
+      "content": "Session on 2026-03-15: Migrated from REST to tRPC for internal APIs. Kept REST for public endpoints.",
+      "category": "session-summary",
+      "importance": 6,
+      "confidence": 0.9,
+      "wing": "experience",
+      "hall": "sessions",
+      "layer": 3,
+      "tags": ["trpc", "migration"]
+    },
+    {
+      "id": "seed-007",
+      "content": "Using bun as the package manager and runtime — faster installs and native TypeScript execution",
+      "category": "tool-preference",
+      "importance": 7,
+      "confidence": 0.9,
+      "wing": "user",
+      "hall": "preferences",
+      "layer": 0,
+      "tags": ["bun", "runtime"]
+    },
+    {
+      "id": "seed-008",
+      "content": "Error pattern: Neon connection pool exhaustion when running parallel migrations — fixed by adding connection limit of 5",
+      "category": "error",
+      "importance": 7,
+      "confidence": 0.95,
+      "wing": "experience",
+      "hall": "errors",
+      "layer": 3,
+      "tags": ["neon", "connection-pool", "migration"]
+    },
+    {
+      "id": "seed-009",
+      "content": "Updated: Switched from Prisma to Drizzle ORM on 2026-03-20. Previous decision to use Prisma is now superseded.",
+      "category": "decision",
+      "importance": 9,
+      "confidence": 0.95,
+      "wing": "knowledge",
+      "hall": "decisions",
+      "layer": 1,
+      "tags": ["drizzle", "prisma", "orm"]
+    },
+    {
+      "id": "seed-010",
+      "content": "Prefers dark mode for all UI designs with high contrast text",
+      "category": "style-preference",
+      "importance": 7,
+      "confidence": 0.85,
+      "wing": "user",
+      "hall": "preferences",
+      "layer": 0,
+      "tags": ["dark-mode", "ui"]
+    },
+    {
+      "id": "seed-011",
+      "content": "The deployment pipeline uses Vercel for frontend and Railway for backend services",
+      "category": "architecture",
+      "importance": 7,
+      "confidence": 0.9,
+      "wing": "knowledge",
+      "hall": "decisions",
+      "layer": 1,
+      "tags": ["vercel", "railway", "deployment"]
+    },
+    {
+      "id": "seed-012",
+      "content": "Pattern: Always use optimistic updates in React mutation hooks — show success immediately, rollback on error",
+      "category": "pattern",
+      "importance": 8,
+      "confidence": 0.9,
+      "wing": "knowledge",
+      "hall": "patterns",
+      "layer": 1,
+      "tags": ["react", "optimistic-update"]
+    },
+    {
+      "id": "seed-013",
+      "content": "Insight: pg_trgm similarity threshold of 0.15 gives best recall for memory linking without too many false positives",
+      "category": "insight",
+      "importance": 6,
+      "confidence": 0.8,
+      "wing": "knowledge",
+      "hall": "insights",
+      "layer": 2,
+      "tags": ["pg_trgm", "threshold"]
+    },
+    {
+      "id": "seed-014",
+      "content": "Session on 2026-04-01: Implemented Tekiō adaptive learning wheel. 8 initial adaptations seeded from common failures.",
+      "category": "session-summary",
+      "importance": 5,
+      "confidence": 0.85,
+      "wing": "experience",
+      "hall": "sessions",
+      "layer": 3,
+      "tags": ["tekio", "adaptation"]
+    },
+    {
+      "id": "seed-015",
+      "content": "Reference: Neon Postgres docs at https://neon.tech/docs — connection pooling section is critical for serverless",
+      "category": "project-context",
+      "importance": 6,
+      "confidence": 0.9,
+      "wing": "knowledge",
+      "hall": "reference",
+      "layer": 2,
+      "tags": ["neon", "docs"]
+    },
+    {
+      "id": "seed-016",
+      "content": "The user's name is Inugami — a senior full-stack developer specializing in TypeScript and React",
+      "category": "identity",
+      "importance": 10,
+      "confidence": 1.0,
+      "wing": "user",
+      "hall": "profile",
+      "layer": 0,
+      "tags": ["identity"]
+    },
+    {
+      "id": "seed-017",
+      "content": "Error pattern: top-level await in CommonJS modules causes ERR_REQUIRE_ESM — always use ESM or dynamic import()",
+      "category": "error",
+      "importance": 8,
+      "confidence": 1.0,
+      "wing": "experience",
+      "hall": "errors",
+      "layer": 3,
+      "tags": ["esm", "commonjs", "error"]
+    },
+    {
+      "id": "seed-018",
+      "content": "Workflow: Run vitest in watch mode during development, full test suite with coverage before PR",
+      "category": "workflow-pattern",
+      "importance": 7,
+      "confidence": 0.85,
+      "wing": "user",
+      "hall": "preferences",
+      "layer": 0,
+      "tags": ["vitest", "testing", "workflow"]
+    },
+    {
+      "id": "seed-019",
+      "content": "Session on 2026-03-25: Fixed connection pool exhaustion by adding pgBouncer. Reduced max connections from 20 to 5.",
+      "category": "session-summary",
+      "importance": 6,
+      "confidence": 0.9,
+      "wing": "experience",
+      "hall": "sessions",
+      "layer": 3,
+      "tags": ["pgbouncer", "connection-pool"]
+    },
+    {
+      "id": "seed-020",
+      "content": "Decision: All environment variables must be validated at startup with Zod, not accessed raw from process.env",
+      "category": "decision",
+      "importance": 8,
+      "confidence": 0.95,
+      "wing": "knowledge",
+      "hall": "decisions",
+      "layer": 1,
+      "tags": ["zod", "env", "validation"]
+    }
+  ],
+  "questions": {
+    "information_extraction": [
+      {
+        "id": "ie-01",
+        "question": "What CSS framework is preferred?",
+        "expected_keywords": ["tailwind"],
+        "expected_seed": "seed-001"
+      },
+      {
+        "id": "ie-02",
+        "question": "What database is used?",
+        "expected_keywords": ["postgres", "neon"],
+        "expected_seed": "seed-002"
+      },
+      {
+        "id": "ie-03",
+        "question": "What ORM was chosen?",
+        "expected_keywords": ["drizzle"],
+        "expected_seed": "seed-003"
+      },
+      {
+        "id": "ie-04",
+        "question": "How does the auth system work?",
+        "expected_keywords": ["jwt", "cookie", "redis"],
+        "expected_seed": "seed-005"
+      },
+      {
+        "id": "ie-05",
+        "question": "What is the user's name?",
+        "expected_keywords": ["inugami"],
+        "expected_seed": "seed-016"
+      },
+      {
+        "id": "ie-06",
+        "question": "What package manager is used?",
+        "expected_keywords": ["bun"],
+        "expected_seed": "seed-007"
+      },
+      {
+        "id": "ie-07",
+        "question": "What UI color scheme is preferred?",
+        "expected_keywords": ["dark"],
+        "expected_seed": "seed-010"
+      },
+      {
+        "id": "ie-08",
+        "question": "How is input validated in API routes?",
+        "expected_keywords": ["zod"],
+        "expected_seed": "seed-004"
+      },
+      {
+        "id": "ie-09",
+        "question": "Where is the frontend deployed?",
+        "expected_keywords": ["vercel"],
+        "expected_seed": "seed-011"
+      },
+      {
+        "id": "ie-10",
+        "question": "What testing framework is used?",
+        "expected_keywords": ["vitest"],
+        "expected_seed": "seed-018"
+      }
+    ],
+    "multi_session_reasoning": [
+      {
+        "id": "ms-01",
+        "question": "What tools are used for database work?",
+        "expected_keywords": ["postgres", "neon", "drizzle"],
+        "description": "Combines seed-002 (Postgres/Neon) + seed-003/009 (Drizzle)"
+      },
+      {
+        "id": "ms-02",
+        "question": "What validation patterns are used across the project?",
+        "expected_keywords": ["zod"],
+        "description": "Combines seed-004 (API validation) + seed-020 (env validation)"
+      },
+      {
+        "id": "ms-03",
+        "question": "What connection pool issues were encountered?",
+        "expected_keywords": ["neon", "connection", "pool"],
+        "description": "Combines seed-008 (error) + seed-019 (fix session)"
+      },
+      {
+        "id": "ms-04",
+        "question": "What is the deployment and hosting architecture?",
+        "expected_keywords": ["vercel", "railway"],
+        "description": "Combines seed-011 (deployment) + seed-002 (Neon DB)"
+      },
+      {
+        "id": "ms-05",
+        "question": "How does the project handle TypeScript?",
+        "expected_keywords": ["typescript", "bun"],
+        "description": "Combines seed-007 (bun runtime) + seed-016 (TS specialist)"
+      },
+      {
+        "id": "ms-06",
+        "question": "What frontend patterns are used in React?",
+        "expected_keywords": ["react", "optimistic"],
+        "description": "Combines seed-012 (optimistic updates) + seed-001 (Tailwind)"
+      },
+      {
+        "id": "ms-07",
+        "question": "What security and auth decisions have been made?",
+        "expected_keywords": ["jwt", "auth", "zod"],
+        "description": "Combines seed-005 (auth) + seed-004 (input validation)"
+      },
+      {
+        "id": "ms-08",
+        "question": "What module system errors were encountered?",
+        "expected_keywords": ["esm", "commonjs"],
+        "description": "Seed-017 (ESM error pattern)"
+      },
+      {
+        "id": "ms-09",
+        "question": "What are the user's development workflow preferences?",
+        "expected_keywords": ["vitest", "bun"],
+        "description": "Combines seed-018 (vitest workflow) + seed-007 (bun)"
+      },
+      {
+        "id": "ms-10",
+        "question": "What database optimization patterns exist?",
+        "expected_keywords": ["pg_trgm", "connection", "pool"],
+        "description": "Combines seed-013 (pg_trgm insight) + seed-008/019 (pool issues)"
+      }
+    ],
+    "temporal_reasoning": [
+      {
+        "id": "tr-01",
+        "question": "What happened on 2026-03-15?",
+        "expected_keywords": ["trpc", "migration"],
+        "expected_seed": "seed-006"
+      },
+      {
+        "id": "tr-02",
+        "question": "When was the connection pool issue fixed?",
+        "expected_keywords": ["2026-03-25", "pgbouncer"],
+        "expected_seed": "seed-019"
+      },
+      {
+        "id": "tr-03",
+        "question": "When was Tekiō implemented?",
+        "expected_keywords": ["2026-04-01", "tekio"],
+        "expected_seed": "seed-014"
+      },
+      {
+        "id": "tr-04",
+        "question": "When was the ORM switch made?",
+        "expected_keywords": ["2026-03-20", "drizzle"],
+        "expected_seed": "seed-009"
+      },
+      {
+        "id": "tr-05",
+        "question": "What sessions happened in March 2026?",
+        "expected_keywords": ["trpc", "pool", "drizzle"],
+        "description": "Multiple sessions in March: seed-006, 009, 019"
+      },
+      {
+        "id": "tr-06",
+        "question": "What happened before the connection pool fix?",
+        "expected_keywords": ["exhaustion", "neon"],
+        "expected_seed": "seed-008",
+        "description": "seed-008 (error) came before seed-019 (fix)"
+      },
+      {
+        "id": "tr-07",
+        "question": "Was the tRPC migration before or after the ORM switch?",
+        "expected_keywords": ["trpc", "before", "drizzle"],
+        "description": "seed-006 (Mar 15) before seed-009 (Mar 20)"
+      },
+      {
+        "id": "tr-08",
+        "question": "What was the most recent session?",
+        "expected_keywords": ["tekio", "2026-04-01"],
+        "expected_seed": "seed-014"
+      },
+      {
+        "id": "tr-09",
+        "question": "When did connection pool problems start?",
+        "expected_keywords": ["neon", "parallel", "migration"],
+        "expected_seed": "seed-008"
+      },
+      {
+        "id": "tr-10",
+        "question": "What database changes were made over time?",
+        "expected_keywords": ["drizzle", "pgbouncer", "neon"],
+        "description": "Timeline: seed-002 → seed-003/009 → seed-008 → seed-019"
+      }
+    ],
+    "knowledge_updates": [
+      {
+        "id": "ku-01",
+        "question": "What ORM is currently used?",
+        "expected_keywords": ["drizzle"],
+        "reject_keywords": ["prisma"],
+        "description": "seed-009 supersedes seed-003: Drizzle replaced Prisma"
+      },
+      {
+        "id": "ku-02",
+        "question": "What is the current database connection strategy?",
+        "expected_keywords": ["pgbouncer", "5"],
+        "reject_keywords": ["20"],
+        "description": "seed-019 updates seed-008: max connections reduced to 5"
+      },
+      {
+        "id": "ku-03",
+        "question": "What ORM does the project NOT use anymore?",
+        "expected_keywords": ["prisma"],
+        "description": "seed-009 explicitly says Prisma is superseded"
+      },
+      {
+        "id": "ku-04",
+        "question": "Is Prisma still the active ORM?",
+        "expected_keywords": ["no", "drizzle", "superseded", "switched"],
+        "description": "Should return the update, not the original decision"
+      },
+      {
+        "id": "ku-05",
+        "question": "What are the current API architecture decisions?",
+        "expected_keywords": ["trpc"],
+        "description": "seed-006 updated from REST to tRPC for internal APIs"
+      },
+      {
+        "id": "ku-06",
+        "question": "Is REST still used for all APIs?",
+        "expected_keywords": ["public", "trpc", "internal"],
+        "description": "REST kept for public, tRPC for internal"
+      },
+      {
+        "id": "ku-07",
+        "question": "What connection pool limit is configured?",
+        "expected_keywords": ["5"],
+        "reject_keywords": ["20"],
+        "description": "Updated from default to 5"
+      },
+      {
+        "id": "ku-08",
+        "question": "How was the connection pool issue resolved?",
+        "expected_keywords": ["pgbouncer"],
+        "description": "seed-019 is the resolution of seed-008"
+      },
+      {
+        "id": "ku-09",
+        "question": "What CSS framework is currently preferred?",
+        "expected_keywords": ["tailwind"],
+        "description": "No update — Tailwind remains the preference"
+      },
+      {
+        "id": "ku-10",
+        "question": "What is the current auth token storage strategy?",
+        "expected_keywords": ["redis", "httponly", "cookie"],
+        "description": "No update — JWT+Redis remains current"
+      }
+    ],
+    "abstention": [
+      {
+        "id": "ab-01",
+        "question": "What CI/CD pipeline tool is used?",
+        "expected_keywords": [],
+        "should_abstain": true,
+        "description": "No memory about CI/CD pipeline tool (only deployment target)"
+      },
+      {
+        "id": "ab-02",
+        "question": "What is the user's email address?",
+        "expected_keywords": [],
+        "should_abstain": true,
+        "description": "No email ever stored"
+      },
+      {
+        "id": "ab-03",
+        "question": "What monitoring tool is used in production?",
+        "expected_keywords": [],
+        "should_abstain": true,
+        "description": "No monitoring tool mentioned"
+      },
+      {
+        "id": "ab-04",
+        "question": "What is the GraphQL schema structure?",
+        "expected_keywords": [],
+        "should_abstain": true,
+        "description": "No GraphQL schema ever described"
+      },
+      {
+        "id": "ab-05",
+        "question": "What is the Kubernetes cluster configuration?",
+        "expected_keywords": [],
+        "should_abstain": true,
+        "description": "No Kubernetes usage mentioned"
+      },
+      {
+        "id": "ab-06",
+        "question": "What mobile framework is used?",
+        "expected_keywords": [],
+        "should_abstain": true,
+        "description": "No mobile development mentioned"
+      },
+      {
+        "id": "ab-07",
+        "question": "What is the team size?",
+        "expected_keywords": [],
+        "should_abstain": true,
+        "description": "No team size information"
+      },
+      {
+        "id": "ab-08",
+        "question": "What message queue system is used?",
+        "expected_keywords": [],
+        "should_abstain": true,
+        "description": "No message queue mentioned"
+      },
+      {
+        "id": "ab-09",
+        "question": "What Python version is required?",
+        "expected_keywords": [],
+        "should_abstain": true,
+        "description": "No Python version specified"
+      },
+      {
+        "id": "ab-10",
+        "question": "What CDN provider is configured?",
+        "expected_keywords": [],
+        "should_abstain": true,
+        "description": "No CDN provider mentioned"
+      }
+    ]
+  }
+}

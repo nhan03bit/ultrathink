@@ -1,0 +1,29 @@
+{
+  "name": "ultrathink-video",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion render UltraThinkPromo out/ultrathink-promo.mp4",
+    "render": "remotion render UltraThinkPromo out/ultrathink-promo.mp4",
+    "showcase": "remotion render UltraThinkShowcase out/ultrathink-showcase.mp4",
+    "manim": "cd manim && bash render.sh"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.0",
+    "@remotion/player": "^4.0.0",
+    "@remotion/three": "^4.0.439",
+    "@remotion/transitions": "^4.0.439",
+    "@types/three": "^0.183.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "remotion": "^4.0.0",
+    "three": "^0.183.2",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "typescript": "^5.7.0"
+  }
+}

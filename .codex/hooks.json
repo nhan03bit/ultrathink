@@ -1,0 +1,43 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/hook-adapter.mjs codex SessionStart",
+            "statusMessage": "Loading memory context and adaptive learning rules",
+            "timeoutSec": 60
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/hook-adapter.mjs codex PreToolUse",
+            "statusMessage": "Privacy check",
+            "timeoutSec": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/hook-adapter.mjs codex Stop",
+            "statusMessage": "Flushing pending memories",
+            "timeoutSec": 30
+          }
+        ]
+      }
+    ]
+  }
+}
