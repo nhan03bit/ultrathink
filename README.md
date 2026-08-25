@@ -10,6 +10,7 @@
 <p align="center">
   <a href="#install">Install</a> •
   <a href="#what-you-get">Features</a> •
+  <a href="#run-fully-local-ollama">Run fully local</a> •
   <a href="#install-a-skill-pack">Skill packs</a> •
   <a href="#harness-architecture">Harness</a> •
   <a href="#rag-pipeline">RAG</a> •
@@ -35,20 +36,19 @@ persistent memory, dashboard, code-intel graph — no phoning home.
 
 ## What you get
 
-- **232 skills** in a 4-layer mesh (orchestrator → hub → utility → domain),
-  auto-routed per prompt by a scoring hook
-- **Persistent memory** on Postgres — 4-wing knowledge graph (agent / user /
-  knowledge / experience), hybrid `tsvector` + `pg_trgm` + vector search, and
-  Zettelkasten-typed relations
-- **Tekiō (適応)** — an unlimited adaptive-learning wheel: new situations get
-  learned, known ones get skipped, failures get countered, successes get
-  reinforced. *Core-only.*
-- **Code intelligence** — 5 cross-file dependency MCP tools that answer "what
-  breaks if I change this?" without reading a single file
-- **Decision engine** — 12 reasoning frameworks injected when a prompt smells
-  like a real architectural call
-- **Identity graph** — long-term `who is this user, what do they prefer, what are they building`, surviving session boundaries
-- **VFS** — AST-signature MCP for code exploration, 60–98% token savings
+- **230+ skills** in a 4-layer mesh (orchestrator → hub → utility → domain),
+  auto-routed per prompt
+- **Persistent memory** on Postgres with a 4-wing knowledge graph, hybrid
+  search, and Zettelkasten relations
+- **Tekiō** — adaptive learning that auto-counters repeat failures and
+  reinforces successes. *Core-only.*
+- **Code intelligence** — 5 cross-file dependency MCP tools that answer
+  "what breaks if I change this?" without reading a single file
+- **Decision engine** — 12 reasoning frameworks injected when a prompt
+  smells like a real architectural call
+- **Identity graph** — long-term `who is this user, what do they prefer,
+  what are they building` that survives session boundaries
+- **VFS** — AST-signature MCP for code exploration with 60–98% token savings
 - **Studio** — cross-platform Tauri desktop app: 3D knowledge graph,
   project-first chat, concurrent agent runner, OS keychain, checkpoints
 - **Dashboard** — Next.js 15 observability surface at `:3333` (memory graph,
@@ -58,28 +58,31 @@ persistent memory, dashboard, code-intel graph — no phoning home.
 
 ## Dashboard
 
-<table>
-<tr>
-<td width="50%">
-<img src="docs/assets/view/dashboard.png" alt="Dashboard overview" />
-<p align="center"><sub>Live ops dashboard — skills, memories, Tekiō spins, hook events</sub></p>
-</td>
-<td width="50%">
-<img src="docs/assets/view/usage.png" alt="Usage dashboard" />
-<p align="center"><sub>Usage analytics — sessions, active time, per-project breakdown</sub></p>
-</td>
-</tr>
-<tr>
-<td width="50%">
-<img src="docs/assets/view/skill.png" alt="Skill catalog" />
-<p align="center"><sub>Skill mesh browser — triggers, links, risk per skill</sub></p>
-</td>
-<td width="50%">
-<img src="docs/assets/view/memory.png" alt="Memory galaxy" />
-<p align="center"><sub>Memory Galaxy — the second-brain graph, force-laid-out</sub></p>
-</td>
-</tr>
-</table>
+<p align="center">
+<img src="docs/assets/view/dashboard.png" alt="Dashboard overview" width="820" />
+</p>
+<p align="center"><sub>Live ops dashboard — skills, memories, Tekiō spins, hook events, weekly usage — served standalone at <code>localhost:3333</code>, reading straight from your own Postgres.</sub></p>
+
+## Usage
+
+<p align="center">
+<img src="docs/assets/view/usage.png" alt="Usage dashboard" width="820" />
+</p>
+<p align="center"><sub>Usage analytics — sessions, active time, memory growth, and per-project breakdown, queried live from Postgres.</sub></p>
+
+## Skills
+
+<p align="center">
+<img src="docs/assets/view/skill.png" alt="Skill catalog" width="820" />
+</p>
+<p align="center"><sub>Skill mesh browser — every orchestrator/hub/utility/domain skill, its triggers, and its link graph to related skills.</sub></p>
+
+## Memory
+
+<p align="center">
+<img src="docs/assets/view/memory.png" alt="Memory galaxy" width="820" />
+</p>
+<p align="center"><sub>Memory Galaxy — the second-brain graph, force-laid-out, with importance, confidence, scope, and typed relations per node.</sub></p>
 
 ## Install
 
@@ -149,6 +152,81 @@ picks up hook changes without a full reinstall.
 npx tsx packages/memory/scripts/memory-runner.ts session-start   # memory engine
 pnpm --filter dashboard dev && open http://localhost:3333        # dashboard
 ```
+
+## Run fully local (Ollama)
+
+A note on scope first: **Claude's weights aren't open — you can't run
+Anthropic's model itself on your own GPU.** What you *can* do is swap the
+model UltraThink talks to for a local open-weight model served by
+[Ollama](https://ollama.com), while keeping every other layer of the harness
+— skill mesh, hooks, memory, dashboard, database — exactly as local as it
+already is. Do that plus a self-hosted Postgres and the entire stack makes
+zero calls to any cloud API.
+
+UltraThink already ships an Ollama provider (`packages/studio-engine/src/providers/ollama.ts`,
+`tools/harness/src/providers/local.ts`) that talks to Ollama's HTTP API on
+`localhost:11434` — this isn't a hypothetical integration, it's wired in.
+
+1. **Install Ollama** — [ollama.com/download](https://ollama.com/download)
+
+   ```sh
+   # macOS
+   brew install ollama
+
+   # Linux
+   curl -fsSL https://ollama.com/install.sh | sh
+   ```
+
+2. **Start the Ollama server** (the macOS/Windows app does this for you;
+   on Linux, or to run it in the foreground):
+
+   ```sh
+   ollama serve
+   ```
+
+3. **Pull a model.** `llama3` is the harness's built-in default; for coding
+   work, a code-tuned model performs meaningfully better:
+
+   ```sh
+   ollama pull llama3              # matches DEFAULT_MODEL in local.ts
+   ollama pull qwen2.5-coder:32b   # stronger for skill/tool-heavy work, needs ~20GB VRAM/RAM
+   ```
+
+4. **Point UltraThink at it** — pick the surface you're using:
+
+   - **Studio (GUI):** Settings → Adapter → `ollama`, then set the Ollama
+     Base URL (defaults to `http://localhost:11434` if left blank). No API
+     key needed — the Anthropic/OpenAI key fields go unused on this path.
+   - **TUI harness** (`tools/harness`):
+
+     ```sh
+     export ULTRATHINK_HARNESS_MODE=local
+     export OLLAMA_URL=http://localhost:11434   # optional, this is the default
+     pnpm run harness
+     ```
+
+5. **(Optional) Self-host the database too**, for a fully air-gapped stack
+   instead of Neon's managed Postgres:
+
+   ```sh
+   docker run -d --name ultrathink-pg -p 5432:5432 \
+     -e POSTGRES_PASSWORD=ultrathink \
+     -v ultrathink-pg-data:/var/lib/postgresql/data \
+     pgvector/pgvector:pg16
+   ```
+
+   Then set `DATABASE_URL=postgresql://postgres:ultrathink@localhost:5432/postgres`
+   in `.env` and run `pnpm run migrate:run`.
+
+6. **Verify nothing leaves the machine:**
+
+   ```sh
+   curl http://localhost:11434/api/tags   # confirms Ollama is serving locally
+   ```
+
+   Disconnect from the network and run a prompt through Studio or the TUI
+   harness — it should still respond, sourced entirely from your GPU/CPU and
+   your own Postgres instance.
 
 ## Install a skill pack
 
