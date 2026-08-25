@@ -101,6 +101,8 @@ ULTRA_ROOT="$(cd "$HOOK_DIR/../.." && pwd)"
       [[ -z "$line" || "$line" =~ ^# ]] && continue
       key="${line%%=*}"
       value="${line#*=}"
+      value="${value%\"}"; value="${value#\"}"
+      value="${value%\'}"; value="${value#\'}"
       export "$key"="$value"
     done < "$ULTRA_ROOT/.env"
   fi

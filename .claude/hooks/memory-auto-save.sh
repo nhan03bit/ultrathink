@@ -33,6 +33,8 @@ if [[ -z "${DATABASE_URL:-}" && -f "$ULTRA_ROOT/.env" ]]; then
     [[ -z "$line" || "$line" =~ ^# ]] && continue
     key="${line%%=*}"
     value="${line#*=}"
+    value="${value%\"}"; value="${value#\"}"
+    value="${value%\'}"; value="${value#\'}"
     export "$key"="$value"
   done < "$ULTRA_ROOT/.env"
 fi
